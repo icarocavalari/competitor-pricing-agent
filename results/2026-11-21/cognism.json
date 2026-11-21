@@ -1,0 +1,20 @@
+{
+  "transparency": "contact_sales",
+  "pricing_model": "seat_plus_credits",
+  "annual_discount_text": null,
+  "plans": [
+    {
+      "name": "Standard",
+      "prices": [],
+      "seats_included": "5 seats",
+      "credits_included": null
+    },
+    {
+      "name": "Pro",
+      "prices": [],
+      "seats_included": "5 seats",
+      "credits_included": null
+    }
+  ],
+  "notes": "No prices appear in the page text. Pricing is via 'Talk to sales' and 'Talk to an expert' and 'Get a personalised quote'. Credits are included per seat but no credit amount is stated. CRM Enrichment is listed as an add-on and standalone product with no price shown. No second view with monthly pricing was provided. Free trials not mentioned."
+}

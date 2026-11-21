@@ -1,0 +1,33 @@
+Round: review_check
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Apollo.io ===
+Correct runs: 9 of 10
+Different answers: 2
+  9 runs, correct
+  1 runs, wrong
+    missing price: organization | 119.00 USD | REVIEW
+    missing price: organization | 149.00 USD | REVIEW
+    wrong price: organization | 119.00 USD per month | annual billing | current | ok
+
+=== Lusha ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+Total correct runs: 49 of 50
+Cost of new API calls: about US$0.0981

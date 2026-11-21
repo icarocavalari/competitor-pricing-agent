@@ -221,3 +221,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Debug output from test runs
+debug/
+
+# Frozen copies of competitor pages used by consistency_test.py (other companies content, kept local)
+tests/pages/
+tests/*/*.json

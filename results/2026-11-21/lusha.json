@@ -1,0 +1,105 @@
+{
+  "transparency": "public",
+  "pricing_model": "seat_plus_credits",
+  "annual_discount_text": "Pay yearly (25% off)",
+  "plans": [
+    {
+      "name": "Free",
+      "prices": [
+        {
+          "amount": 0.0,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$0 USD / month"
+        }
+      ],
+      "seats_included": "1 seat included",
+      "credits_included": "40 credits per month"
+    },
+    {
+      "name": "Starter",
+      "prices": [
+        {
+          "amount": 37.45,
+          "currency": "USD",
+          "billing": "annual",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$37.45 USD / month"
+        },
+        {
+          "amount": 49.9,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$49.90 USD / month"
+        }
+      ],
+      "seats_included": "1 seat included",
+      "credits_included": "4,800 credits per year"
+    },
+    {
+      "name": "Pro",
+      "prices": [
+        {
+          "amount": 52.45,
+          "currency": "USD",
+          "billing": "annual",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$52.45 USD / month"
+        },
+        {
+          "amount": 69.9,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$69.90 USD / month"
+        }
+      ],
+      "seats_included": "2 free seats",
+      "credits_included": "7,200 credits per year"
+    },
+    {
+      "name": "Premium",
+      "prices": [
+        {
+          "amount": 299.95,
+          "currency": "USD",
+          "billing": "annual",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$299.95 USD / month"
+        },
+        {
+          "amount": 399.9,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "per month",
+          "kind": "current",
+          "evidence": "$399.90 USD / month"
+        }
+      ],
+      "seats_included": "5 free seats",
+      "credits_included": "40,800 credits per year"
+    },
+    {
+      "name": "Scale",
+      "prices": [],
+      "seats_included": "Custom seats",
+      "credits_included": "Custom credits per year"
+    }
+  ],
+  "notes": "Prices are shown per month for annual billing (Billed yearly) and for monthly billing (Billed monthly) in the monthly view; annual plan totals were not shown as yearly amounts. Monthly view credits: Starter 400/month, Pro 600/month, Premium 3,400/month; annual view credits listed as per year. Pro and Premium seat counts appear as '2 free seats' and '5 free seats' in plan features; the seats line itself has no number. Scale has no price and requires contacting sales; per-seat limits and credit limits are custom. Teams larger than 5 users are directed to sales. Monthly plans roll over unused credits up to 2x the monthly limit; annual plans grant all credits upfront. Phone reveals cost 5 credits and email reveals cost 1 credit."
+}

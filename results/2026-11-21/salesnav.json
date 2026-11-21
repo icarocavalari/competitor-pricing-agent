@@ -1,0 +1,64 @@
+{
+  "transparency": "public",
+  "pricing_model": "per_seat",
+  "annual_discount_text": "Core: a 25% savings with annual billing. Advanced: a 6% savings with annual billing.",
+  "plans": [
+    {
+      "name": "Core",
+      "prices": [
+        {
+          "amount": 119.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "license",
+          "kind": "current",
+          "evidence": "US$119.99/month or US$1,079.88/year"
+        },
+        {
+          "amount": 1079.88,
+          "currency": "USD",
+          "billing": "annual",
+          "period_shown": "year",
+          "unit": "license",
+          "kind": "current",
+          "evidence": "US$119.99/month or US$1,079.88/year"
+        }
+      ],
+      "seats_included": null,
+      "credits_included": null
+    },
+    {
+      "name": "Advanced",
+      "prices": [
+        {
+          "amount": 159.99,
+          "currency": "USD",
+          "billing": "monthly",
+          "period_shown": "month",
+          "unit": "license",
+          "kind": "current",
+          "evidence": "US$159.99/month or US$1,799.88/year"
+        },
+        {
+          "amount": 1799.88,
+          "currency": "USD",
+          "billing": "annual",
+          "period_shown": "year",
+          "unit": "license",
+          "kind": "current",
+          "evidence": "US$159.99/month or US$1,799.88/year"
+        }
+      ],
+      "seats_included": null,
+      "credits_included": null
+    },
+    {
+      "name": "Advanced Plus",
+      "prices": [],
+      "seats_included": null,
+      "credits_included": null
+    }
+  ],
+  "notes": "Only View 1 (page as it loads) was provided. Core and Advanced prices are per license starting prices in USD; the page says these are estimates that may exclude VAT/GST and promotional discounts. Localized prices in AUD, CAD, EUR and GBP are listed in the FAQ but not recorded here. Advanced Plus pricing is customized by team size, CRM integration and onboarding needs; request demo for a quote. No minimum seats stated. Free trials available for Core and Advanced for eligible LinkedIn members. Advanced can be purchased online for up to five licenses."
+}

@@ -1,0 +1,115 @@
+Round: baseline
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 6 of 10
+Different answers: 2
+  6 runs, correct
+  4 runs, wrong
+    missing price: core | 119.99 USD per month | monthly billing | current | ok
+    missing price: core | 1079.88 USD per year | annual billing | current | ok
+    missing price: advanced | 159.99 USD per month | monthly billing | current | ok
+    missing price: advanced | 1799.88 USD per year | annual billing | current | ok
+    wrong price: advanced | 130.00 GBP | REVIEW
+    wrong price: advanced | 148.21 EUR | REVIEW
+    wrong price: advanced | 1499.88 GBP | REVIEW
+    wrong price: advanced | 159.99 USD | REVIEW
+    wrong price: advanced | 1693.88 EUR | REVIEW
+    wrong price: advanced | 179.99 CAD | REVIEW
+    wrong price: advanced | 1799.88 USD | REVIEW
+    wrong price: advanced | 189.99 AUD | REVIEW
+    wrong price: advanced | 2039.88 CAD | REVIEW
+    wrong price: advanced | 2159.88 AUD | REVIEW
+    wrong price: core | 1079.88 USD | REVIEW
+    wrong price: core | 1088.88 EUR | REVIEW
+    wrong price: core | 119.99 USD | REVIEW
+    wrong price: core | 1199.88 CAD | REVIEW
+    wrong price: core | 120.99 EUR | REVIEW
+    wrong price: core | 144.99 CAD | REVIEW
+    wrong price: core | 1499.88 AUD | REVIEW
+    wrong price: core | 154.99 AUD | REVIEW
+    wrong price: core | 94.99 GBP | REVIEW
+    wrong price: core | 959.88 GBP | REVIEW
+
+=== Apollo.io ===
+Correct runs: 0 of 10
+Different answers: 4
+  4 runs, wrong
+    missing price: basic | 49.00 USD per month | annual billing | current | ok
+    missing price: basic | 65.00 USD per month | monthly billing | current | ok
+    missing price: professional | 79.00 USD per month | annual billing | current | ok
+    missing price: professional | 99.00 USD per month | monthly billing | current | ok
+    missing price: organization | 119.00 USD | REVIEW
+    missing price: organization | 149.00 USD | REVIEW
+    wrong price: basic | 49.00 $ per month | annual billing | current | ok
+    wrong price: basic | 65.00 $ per month | monthly billing | current | ok
+    wrong price: organization | 119.00 $ | REVIEW
+    wrong price: organization | 149.00 $ | REVIEW
+    wrong price: professional | 79.00 $ per month | annual billing | current | ok
+    wrong price: professional | 99.00 $ per month | monthly billing | current | ok
+  4 runs, wrong
+    extra plan: custom
+    missing price: basic | 49.00 USD per month | annual billing | current | ok
+    missing price: basic | 65.00 USD per month | monthly billing | current | ok
+    missing price: professional | 79.00 USD per month | annual billing | current | ok
+    missing price: professional | 99.00 USD per month | monthly billing | current | ok
+    missing price: organization | 119.00 USD | REVIEW
+    missing price: organization | 149.00 USD | REVIEW
+    wrong price: basic | 49.00 $ per month | annual billing | current | ok
+    wrong price: basic | 65.00 $ per month | monthly billing | current | ok
+    wrong price: organization | 119.00 $ | REVIEW
+    wrong price: organization | 149.00 $ | REVIEW
+    wrong price: professional | 79.00 $ per month | annual billing | current | ok
+    wrong price: professional | 99.00 $ per month | monthly billing | current | ok
+  1 runs, wrong
+    extra plan: custom
+    extra plan: starter
+    missing price: basic | 49.00 USD per month | annual billing | current | ok
+    missing price: basic | 65.00 USD per month | monthly billing | current | ok
+    missing price: professional | 79.00 USD per month | annual billing | current | ok
+    missing price: professional | 99.00 USD per month | monthly billing | current | ok
+    missing price: organization | 119.00 USD | REVIEW
+    missing price: organization | 149.00 USD | REVIEW
+    wrong price: basic | 49.00 $ per month | annual billing | current | ok
+    wrong price: basic | 65.00 $ per month | monthly billing | current | ok
+    wrong price: organization | 119.00 $ | REVIEW
+    wrong price: organization | 149.00 $ | REVIEW
+    wrong price: professional | 79.00 $ per month | annual billing | current | ok
+    wrong price: professional | 99.00 $ per month | monthly billing | current | ok
+  1 runs, wrong
+    missing price: free | free | ok
+    missing price: basic | 49.00 USD per month | annual billing | current | ok
+    missing price: basic | 65.00 USD per month | monthly billing | current | ok
+    missing price: professional | 79.00 USD per month | annual billing | current | ok
+    missing price: professional | 99.00 USD per month | monthly billing | current | ok
+    missing price: organization | 119.00 USD | REVIEW
+    missing price: organization | 149.00 USD | REVIEW
+    wrong price: basic | 49.00 $ per month | annual billing | current | ok
+    wrong price: basic | 65.00 $ per month | monthly billing | current | ok
+    wrong price: free | free | FAIL
+    wrong price: organization | 119.00 $ | REVIEW
+    wrong price: organization | 149.00 $ | REVIEW
+    wrong price: professional | 79.00 $ per month | annual billing | current | ok
+    wrong price: professional | 99.00 $ per month | monthly billing | current | ok
+
+=== Lusha ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 5 of 10
+Different answers: 3
+  5 runs, correct
+  4 runs, wrong
+    extra plan: crm enrichment
+  1 runs, wrong
+    pricing model is per_seat, should be seat_plus_credits
+    extra plan: crm enrichment
+
+Total correct runs: 31 of 50
+Cost of new API calls: about US$0.0000

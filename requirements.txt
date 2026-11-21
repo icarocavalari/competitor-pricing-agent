@@ -1,0 +1,4 @@
+anthropic==0.125.0
+pydantic==2.13.5
+python-dotenv==1.2.1
+playwright==1.60.0

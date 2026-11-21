@@ -1,0 +1,44 @@
+Round: clear_model
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 9 of 10
+Different answers: 2
+  9 runs, correct
+  1 runs, wrong
+    missing price: core | 119.99 USD per month | monthly billing | current | ok
+    missing price: core | 1079.88 USD per year | annual billing | current | ok
+    missing price: advanced | 159.99 USD per month | monthly billing | current | ok
+    missing price: advanced | 1799.88 USD per year | annual billing | current | ok
+
+=== Apollo.io ===
+Correct runs: 8 of 10
+Different answers: 3
+  8 runs, correct
+  1 runs, wrong
+    missing price: organization | 119.00 USD per month | annual billing | unclear | REVIEW
+    missing price: organization | 149.00 USD per month | annual billing | unclear | REVIEW
+    wrong price: organization | 119.00 USD per month | annual billing | current | ok
+    wrong price: organization | 149.00 USD per month | unknown billing | unclear | REVIEW
+  1 runs, wrong
+    missing price: organization | 119.00 USD per month | annual billing | unclear | REVIEW
+    missing price: organization | 149.00 USD per month | annual billing | unclear | REVIEW
+    wrong price: organization | 119.00 USD per month | annual billing | current | ok
+    wrong price: organization | 149.00 USD per month | annual billing | current | ok
+
+=== Lusha ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+Total correct runs: 47 of 50
+Cost of new API calls: about US$0.0985
