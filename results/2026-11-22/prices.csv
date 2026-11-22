@@ -1,0 +1,24 @@
+﻿competitor,transparency,pricing_model,plan,seats,credits,amount,currency,period_shown,billing,kind,per_month,check
+LinkedIn Sales Navigator,public,per_seat,Core,,,119.99,USD,month,monthly,current,119.99,ok
+LinkedIn Sales Navigator,public,per_seat,Core,,,1079.88,USD,year,annual,current,89.99,ok
+LinkedIn Sales Navigator,public,per_seat,Advanced,,,159.99,USD,month,monthly,current,159.99,ok
+LinkedIn Sales Navigator,public,per_seat,Advanced,,,1799.88,USD,year,annual,current,149.99,ok
+LinkedIn Sales Navigator,public,per_seat,Advanced Plus,,,,,,,,,
+Apollo.io,public,seat_plus_credits,Free,,"900 credits per seat per year, granted monthly (annual view); 75 credits per seat per month, granted upfront (monthly view)",0.0,USD,unknown,unknown,current,,ok
+Apollo.io,public,seat_plus_credits,Basic,,"30,000 credits per seat per year, granted upfront (annual view); 2,500 credits per seat per month, granted upfront (monthly view)",49.0,USD,month,annual,current,49.0,ok
+Apollo.io,public,seat_plus_credits,Basic,,"30,000 credits per seat per year, granted upfront (annual view); 2,500 credits per seat per month, granted upfront (monthly view)",65.0,USD,month,monthly,current,65.0,ok
+Apollo.io,public,seat_plus_credits,Professional,,"48,000 credits per seat per year, granted upfront (annual view); 4,000 credits per seat per month, granted upfront (monthly view)",79.0,USD,month,annual,current,79.0,ok
+Apollo.io,public,seat_plus_credits,Professional,,"48,000 credits per seat per year, granted upfront (annual view); 4,000 credits per seat per month, granted upfront (monthly view)",99.0,USD,month,monthly,current,99.0,ok
+Apollo.io,public,seat_plus_credits,Organization,min 3 seats,"72,000 credits per seat per year, granted upfront (annual view); 6,000 credits per seat per month, granted upfront (monthly view)",119.0,USD,month,annual,unclear,119.0,REVIEW
+Apollo.io,public,seat_plus_credits,Organization,min 3 seats,"72,000 credits per seat per year, granted upfront (annual view); 6,000 credits per seat per month, granted upfront (monthly view)",149.0,USD,month,annual,unclear,149.0,REVIEW
+Lusha,public,seat_plus_credits,Free,1 seat included,40 credits per month,0.0,USD,month,monthly,current,0.0,ok
+Lusha,public,seat_plus_credits,Starter,1 seat included,"4,800 credits per year",37.45,USD,month,annual,current,37.45,ok
+Lusha,public,seat_plus_credits,Starter,1 seat included,"4,800 credits per year",49.9,USD,month,monthly,current,49.9,ok
+Lusha,public,seat_plus_credits,Pro,2 free seats,"7,200 credits per year",52.45,USD,month,annual,current,52.45,ok
+Lusha,public,seat_plus_credits,Pro,2 free seats,"7,200 credits per year",69.9,USD,month,monthly,current,69.9,ok
+Lusha,public,seat_plus_credits,Premium,5 free seats,"40,800 credits per year",299.95,USD,month,annual,current,299.95,ok
+Lusha,public,seat_plus_credits,Premium,5 free seats,"40,800 credits per year",399.9,USD,month,monthly,current,399.9,ok
+Lusha,public,seat_plus_credits,Scale,Custom seats,Custom credits per year,,,,,,,
+ZoomInfo,blocked,unknown,,,,,,,,,,
+Cognism,contact_sales,seat_plus_credits,Standard,5 seats,Each seat includes an allocation of credits,,,,,,,
+Cognism,contact_sales,seat_plus_credits,Pro,5 seats,Each seat includes an allocation of credits,,,,,,,
