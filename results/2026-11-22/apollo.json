@@ -26,7 +26,7 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "current",
           "evidence": "$49 Per seat per month, billed annually"
         },
@@ -35,7 +35,7 @@
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "current",
           "evidence": "$65 Per seat per month, billed monthly"
         }
@@ -51,7 +51,7 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "current",
           "evidence": "$79 Per seat per month, billed annually"
         },
@@ -60,7 +60,7 @@
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "current",
           "evidence": "$99 Per seat per month, billed monthly"
         }
@@ -76,7 +76,7 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "unclear",
           "evidence": "$119 Per seat per month, (min 3 seats) billed annually"
         },
@@ -85,7 +85,7 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per seat",
+          "unit": "per seat per month",
           "kind": "unclear",
           "evidence": "$149 Per seat per month, (min 3 seats) Annual Only"
         }
@@ -95,5 +95,5 @@
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Prices are shown in two views: annual billing and monthly billing. Currency is shown only as a dollar sign, recorded as USD; no other currencies shown. Organization requires minimum 3 seats and is marked Annual Only in the monthly view, so both of its prices are unclear. Free plan credit amounts differ between views (900 per year vs 75 per month); both recorded. Paid plans offer a 14-day trial; FAQ says trial includes 75 credits. Add-ons not listed as plans: Inbound (Essentials $119 annual / $149 monthly, Max $639 annual / $799 monthly, per team) and Advanced Dialer ($119 annual / $149 monthly, per team). Custom plan is mentioned only in FAQ and not listed. Prices exclude applicable taxes. Credit costs: email 1 credit, phone number 8 credits, AI research 1 credit per run, US Dialer 1 credit per 30 seconds. Credits do not roll over."
+  "notes": "Annual and monthly views show different prices for Organization ($119 billed annually vs $149 marked Annual Only in monthly view), so both are unclear. Free shows $0 in both views with conflicting credit text. Basic and Professional offer a 14-day trial; trial includes 75 credits. Add-ons, not plans: Advanced Dialer $119 annual / $149 monthly per team; Inbound Essentials $119 / $149 and Max $639 / $799 per team (annual / monthly). Custom plan appears only in FAQ, not listed. Organization requires minimum 3 seats. Prices shown in USD only. Unused credits do not roll over."
 }

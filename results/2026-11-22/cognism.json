@@ -5,16 +5,16 @@
     {
       "name": "Standard",
       "prices": [],
-      "seats_included": "5 seats",
+      "seats_included": "5 seats included",
       "credits_included": "Each seat includes an allocation of credits"
     },
     {
       "name": "Pro",
       "prices": [],
-      "seats_included": "5 seats",
+      "seats_included": "5 seats included",
       "credits_included": "Each seat includes an allocation of credits"
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "No prices appear in the text. The page directs visitors to talk to sales for a personalised quote. Only one view of the page was provided, with no monthly-toggle view. CRM Enrichment is an add-on or standalone product, not a listed plan, and has no price shown. Add-ons listed: CRM Enrichment. Credits are 1 per revealed contact, and additional credits can be purchased. No specific credit numbers are given."
+  "notes": "No prices appear in the text. Standard and Pro show 'Talk to sales' and 'Talk to an expert' instead, and the page asks for a personalised quote. Only one view was provided, so no monthly-toggle prices. CRM Enrichment is an add-on and a standalone product, not a listed plan, and has no price. Credits are not priced in the text. Intent data and on-demand mobile verification are Pro features per the FAQ. Pricing is described as tailored; no number of credits per seat is stated."
 }

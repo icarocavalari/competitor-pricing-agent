@@ -135,20 +135,25 @@ def differences(answer, expected):
 
 
 def main():
+    # Reading the round name
     if len(sys.argv) != 2:
         sys.exit("Give the round a name, for example: python consistency_test.py baseline")
 
     round_name = sys.argv[1]
+
+    # Create the folder with the round name if it doesn't exist yet
     folder = f"tests/{round_name}"
     os.makedirs(folder, exist_ok=True)
 
-    # Runs already saved in this round's folder are reused for free. Only the missing ones call the API.
+    # Count the runs not saved yet in this round's folder. A new round needs 50 (10 runs x 5 competitors),
+    # a round that stopped halfway needs fewer, and a finished round needs none (free rescore).
     missing = 0
     for key in COMPETITORS:
         for run in range(1, RUNS + 1):
             if not os.path.exists(f"{folder}/{key}_run{run:02d}.json"):
                 missing += 1
 
+    # Tell the user how many API calls will be done, how much approximately it will cost and the option to decline running the application
     if missing > 0:
         answer = input(f"This needs {missing} API calls, about US${missing * COST_PER_CALL:.2f}. Continue? (y/n) ")
         if answer.strip().lower() != "y":
@@ -180,17 +185,20 @@ def main():
             else:
                 print(f"{name}, run {run} of {RUNS}")
 
-                # A broken answer (cut-off JSON) is saved as an error, so it counts as a wrong run and isn't paid
-                # for again. Any other error, like a wrong setting, stops the test and nothing is saved.
+                # Calling the API and extracting the result of pricing and the usage of the API to calculate the costs
                 try:
                     pricing, usage = extract(client, name, page_text)
                     total_cost += usage.input_tokens * 0.10 / 1_000_000
                     total_cost += usage.output_tokens * 0.50 / 1_000_000
                     saved = pricing.model_dump()
+                
+                # A broken answer (cut-off JSON) is saved as an error, so it counts as a wrong run and isn't paid
+                # for again. Any other error, like a wrong setting, stops the test and nothing is saved.
                 except ValidationError as error:
                     print(f"  Failed: {str(error)[:200]}")
                     saved = {"error": str(error)[:200]}
 
+                # Saving the results
                 with open(path, "w", encoding="utf-8") as file:
                     json.dump(saved, file, indent=2, ensure_ascii=False)
 

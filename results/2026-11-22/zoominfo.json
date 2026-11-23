@@ -3,5 +3,5 @@
   "annual_discount_text": null,
   "plans": [],
   "pricing_model": "unknown",
-  "notes": "Page text is a Cloudflare security verification page, not the pricing page. No view of the pricing page was provided, so no plans or prices could be extracted."
+  "notes": "Only the first view was provided and it is a Cloudflare security verification page, not the pricing page. No plans, prices, or discount text could be extracted. The 'monthly' view was not provided."
 }

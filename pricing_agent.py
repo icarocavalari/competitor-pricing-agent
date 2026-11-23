@@ -1,4 +1,3 @@
-import csv
 import os
 import re
 import sys
@@ -7,6 +6,7 @@ from typing import Literal, Optional
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
+from openpyxl import Workbook
 from playwright.sync_api import sync_playwright
 from pydantic import BaseModel, ValidationError
 
@@ -199,7 +199,7 @@ def main():
 
     total_cost = 0
 
-    # Every price becomes one row of a table, saved as prices.csv at the end for analysis in Excel
+    # Every price becomes one row of a table, saved as prices.xlsx at the end for analysis in Excel
     rows = []
 
     for key in keys:
@@ -286,13 +286,20 @@ def main():
         with open(f"{results_folder}/{key}.json", "w", encoding="utf-8") as file:
             file.write(pricing.model_dump_json(indent=2))
 
-    # 5. Save every price as one table. utf-8-sig helps Excel read the file correctly.
+    # 5. Save every price as one table in an Excel file. Numbers stay real numbers, ready for formulas,
+    # and it opens correctly in any Excel language (a CSV breaks in Excel set to Portuguese).
     columns = ["competitor", "transparency", "pricing_model", "plan", "seats", "credits",
                "amount", "currency", "period_shown", "billing", "kind", "per_month", "check"]
-    with open(f"{results_folder}/prices.csv", "w", encoding="utf-8-sig", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=columns)
-        writer.writeheader()
-        writer.writerows(rows)
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.title = "prices"
+    sheet.append(columns)
+    for row in rows:
+        values = []
+        for column in columns:
+            values.append(row.get(column))  # an empty cell when the row has no value for that column
+        sheet.append(values)
+    workbook.save(f"{results_folder}/prices.xlsx")
 
     print(f"\nTotal cost: about US${total_cost:.4f}")
 

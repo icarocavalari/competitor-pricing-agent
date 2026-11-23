@@ -1,6 +1,6 @@
 {
   "transparency": "public",
-  "annual_discount_text": "25% off",
+  "annual_discount_text": "Pay yearly (25% off)",
   "plans": [
     {
       "name": "Free",
@@ -12,7 +12,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$0 USD / month"
+          "evidence": "$ 0 USD / month Billed monthly"
         }
       ],
       "seats_included": "1 seat included",
@@ -28,7 +28,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$37.45 USD / month"
+          "evidence": "$ 37 .45 USD / month Billed yearly"
         },
         {
           "amount": 49.9,
@@ -37,7 +37,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$49.90 USD / month"
+          "evidence": "$ 49 .90 USD / month Billed monthly"
         }
       ],
       "seats_included": "1 seat included",
@@ -53,7 +53,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$52.45 USD / month"
+          "evidence": "$ 52 .45 USD / month Billed yearly"
         },
         {
           "amount": 69.9,
@@ -62,7 +62,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$69.90 USD / month"
+          "evidence": "$ 69 .90 USD / month Billed monthly"
         }
       ],
       "seats_included": "2 free seats",
@@ -78,7 +78,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$299.95 USD / month"
+          "evidence": "$ 299 .95 USD / month Billed yearly"
         },
         {
           "amount": 399.9,
@@ -87,7 +87,7 @@
           "period_shown": "month",
           "unit": "account",
           "kind": "current",
-          "evidence": "$399.90 USD / month"
+          "evidence": "$ 399 .90 USD / month Billed monthly"
         }
       ],
       "seats_included": "5 free seats",
@@ -101,5 +101,5 @@
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Two views: the default view shows annual billing (Starter 4,800, Pro 7,200, Premium 40,800 credits per year). The monthly view shows Starter 400, Pro 600, Premium 3,400 credits per month, with monthly billing prices. Annual and monthly prices are different billing cycles, so each is recorded separately. Free plan price is identical in both views. Scale plan is custom, contact sales, no price shown. Only USD prices are shown. Free plan: 1 seat. Monthly-plan credits roll over up to 2x the limit; annual credits are granted upfront. Pro seat text reads '2 free seats'. Add-ons or extra credit purchases are not listed as plans. Phone reveals cost 5 credits each, emails 1 credit."
+  "notes": "Two views: the default view shows yearly-billed prices with credits per year (Starter 4,800, Pro 7,200, Premium 40,800). The monthly view shows monthly-billed prices with credits per month (Starter 400, Pro 600, Premium 3,400, rolling over up to 2x). Free plan price is the same in both views. Scale is custom with no price shown; it includes 50%+ off price per credit and custom seats. Pro seat count is from the feature list ('2 free seats'); Premium's from '5 free seats'. Only USD prices are shown. No add-ons listed as plans. Phone numbers cost 5 credits and verified emails cost 1 credit per the credits breakdown. Free trial not mentioned beyond Free plan. Minimum spend threshold applies to some Scale benefits."
 }
