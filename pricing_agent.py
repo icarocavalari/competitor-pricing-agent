@@ -120,6 +120,7 @@ def clean(text):
     text = " ".join(text.split())    # all spaces and line breaks become one space
     text = text.replace("$ ", "$")   # "$ 37" -> "$37"
     text = text.replace(" .", ".")   # "37 .45" -> "37.45"
+    text = text.replace(",", "")     # "month, billed" -> "month billed", "1,079.88" -> "1079.88"
     return text
 
 

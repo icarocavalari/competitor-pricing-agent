@@ -1,0 +1,29 @@
+Round: short_rules
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Apollo.io ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Lusha ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+Total correct runs: 50 of 50
+Cost of new API calls: about US$0.0000
