@@ -235,6 +235,12 @@ def main():
             "transparency": pricing.transparency,
             "pricing_model": pricing.pricing_model,
         }
+
+         # A blocked page can't be read, so a person has to check it by hand
+        if pricing.transparency == "blocked":
+            competitor_row["check"] = "REVIEW"
+            print("Blocked, a person has to check this page by hand -> REVIEW")
+
         if len(pricing.plans) == 0:
             rows.append(competitor_row)
 

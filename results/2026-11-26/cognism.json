@@ -1,0 +1,20 @@
+{
+  "transparency": "contact_sales",
+  "annual_discount_text": null,
+  "plans": [
+    {
+      "name": "Standard",
+      "prices": [],
+      "seats_included": "5 seats",
+      "credits_included": "Each seat includes an allocation of credits"
+    },
+    {
+      "name": "Pro",
+      "prices": [],
+      "seats_included": "5 seats",
+      "credits_included": "Each seat includes an allocation of credits"
+    }
+  ],
+  "pricing_model": "seat_plus_credits",
+  "notes": "No prices appear in the page text for Standard or Pro. Standard has a 'Talk to sales' button, Pro has 'Talk to an expert', and the page says 'Get a personalised quote for your team'. CRM Enrichment is an add-on and standalone product, not a listed plan, and has no price. Only the loading view was provided, so no monthly-toggle view or prices were available. Credits are used per revealed contact; no credit count or price is stated."
+}
