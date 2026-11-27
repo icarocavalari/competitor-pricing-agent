@@ -331,12 +331,13 @@ def build_rows(name, pricing, page):
         "pricing_model": pricing.pricing_model,
     }
 
-    # A blocked page can't be read, so a person has to check it by hand
-    if pricing.transparency == "blocked":
-        add_check(competitor_row, "REVIEW, page blocked, check it by hand")
-        print("Blocked, a person has to check this page by hand -> REVIEW")
-
+    # No plans at all (a blocked or empty page) means a person has to check the page by hand
     if len(pricing.plans) == 0:
+        if pricing.transparency == "blocked":
+            add_check(competitor_row, "REVIEW, page blocked, check it by hand")
+        else:
+            add_check(competitor_row, "REVIEW, no plans found, check the page by hand")
+        print(f"{competitor_row['note']} -> REVIEW")
         rows.append(competitor_row)
 
     for plan in pricing.plans:
