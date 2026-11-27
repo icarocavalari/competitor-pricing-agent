@@ -1,0 +1,34 @@
+Round: seats_credits_double_check
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Apollo.io ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Lusha ===
+Correct runs: 9 of 10
+Different answers: 2
+  9 runs, correct
+  1 runs, wrong
+    missing seats or credits: premium | seats 5 | 3400 credits per month, per plan | ok
+    missing seats or credits: pro | seats 2 | 600 credits per month, per plan | ok
+    wrong seats or credits: premium | seats - | 3400 credits per month, per plan | ok
+    wrong seats or credits: pro | seats - | 600 credits per month, per plan | ok
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+Total correct runs: 49 of 50
+Cost of new API calls: about US$0.1028
