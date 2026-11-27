@@ -12,7 +12,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$0 USD / month"
+          "evidence": "$ 0 USD / month, Billed monthly"
         }
       ],
       "seats_included": 1,
@@ -32,7 +32,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$37.45 USD / month Billed yearly"
+          "evidence": "$37.45 USD / month, Billed yearly"
         },
         {
           "amount": 49.9,
@@ -41,7 +41,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$49.90 USD / month Billed monthly"
+          "evidence": "$49.90 USD / month, Billed monthly"
         }
       ],
       "seats_included": 1,
@@ -61,7 +61,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$52.45 USD / month Billed yearly"
+          "evidence": "$52.45 USD / month, Billed yearly"
         },
         {
           "amount": 69.9,
@@ -70,7 +70,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$69.90 USD / month Billed monthly"
+          "evidence": "$69.90 USD / month, Billed monthly"
         }
       ],
       "seats_included": 2,
@@ -90,7 +90,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$299.95 USD / month Billed yearly"
+          "evidence": "$299.95 USD / month, Billed yearly"
         },
         {
           "amount": 399.9,
@@ -99,7 +99,7 @@
           "period_shown": "month",
           "unit": "plan",
           "kind": "current",
-          "evidence": "$399.90 USD / month Billed monthly"
+          "evidence": "$399.90 USD / month, Billed monthly"
         }
       ],
       "seats_included": 5,
@@ -117,9 +117,9 @@
       "credits": null,
       "credits_period": "year",
       "credits_per_seat": false,
-      "credits_evidence": null
+      "credits_evidence": "Custom credits per year"
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Prices in view 1 (yearly default) are per month billed yearly; view 2 (monthly) shows monthly billing prices. Scale plan is custom with no price; sales contact required. Credits in view 2 are per month (Starter 400, Pro 600, Premium 3,400), recorded as view 1 per-year figures. Pro's seat count taken from '2 free seats' in its feature list. Prices shown only in USD. Add-on credit prices not shown. Free plan 40 credits per month; credits roll over on monthly plans up to twice the limit per FAQ."
+  "notes": "Prices shown in USD only. Pay yearly view shows annual-cycle credits per year; monthly view shows monthly credits per month (e.g. Premium 3,400 per month, Pro 600 per month, Starter 400 per month); credits from first view recorded. Pro seats taken from feature list '2 free seats'. Scale plan is custom, contact sales; no price shown. Monthly plans roll over unused credits up to 2x monthly cap. Teams larger than 5 users directed to Sales. Page lists monthly credit reveal costs: email 1 credit, phone 5 credits. Price model fields may be affected by the view-2 monthly prices differing from view-1 annual prices."
 }

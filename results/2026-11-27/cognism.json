@@ -6,23 +6,23 @@
       "name": "Standard",
       "prices": [],
       "seats_included": 5,
-      "seats_evidence": "5 seats included",
+      "seats_evidence": "For teams that need core prospecting workflows · 5 seats included",
       "credits": null,
       "credits_period": "unknown",
       "credits_per_seat": true,
-      "credits_evidence": null
+      "credits_evidence": "Each seat includes an allocation of credits as part of the subscription."
     },
     {
       "name": "Pro",
       "prices": [],
       "seats_included": 5,
-      "seats_evidence": "5 seats included",
+      "seats_evidence": "For teams that need advanced prospecting workflows · 5 seats included",
       "credits": null,
       "credits_period": "unknown",
       "credits_per_seat": true,
-      "credits_evidence": null
+      "credits_evidence": "Each seat includes an allocation of credits as part of the subscription."
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Page text shows no plan prices. It says 'Speak to a Cognism expert to find the right setup and pricing' and 'Get a personalised quote', and the plan buttons say 'Talk to an expert'. CRM Enrichment is an add-on or standalone product, not a listed plan, and has no price. Credits: 'Each seat includes an allocation of credits' but no number is given. Only one view of the page was provided, with no monthly toggle view."
+  "notes": "Only one view of the page was provided. No prices appear in the text. The page says pricing is tailored and offers a personalised quote via Talk to sales or Talk to an expert. Standard and Pro are the sales prospecting plans. CRM Enrichment is an add-on and standalone product with no price shown, and Data-as-a-Service is mentioned in the FAQ with no price, so neither is listed as a plan. Credit numbers are not stated."
 }

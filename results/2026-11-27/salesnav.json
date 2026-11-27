@@ -1,6 +1,6 @@
 {
   "transparency": "public",
-  "annual_discount_text": "Core: a 25% savings with annual billing. Advanced: a 6% savings with annual billing.",
+  "annual_discount_text": "a 25% savings with annual billing (Core); a 6% savings with annual billing (Advanced)",
   "plans": [
     {
       "name": "Core",
@@ -25,7 +25,7 @@
         }
       ],
       "seats_included": 1,
-      "seats_evidence": "pricing per license starts at:",
+      "seats_evidence": "pricing per license starts at",
       "credits": null,
       "credits_period": "unknown",
       "credits_per_seat": false,
@@ -54,7 +54,7 @@
         }
       ],
       "seats_included": 1,
-      "seats_evidence": "pricing per license starts at:",
+      "seats_evidence": "pricing per license starts at",
       "credits": null,
       "credits_period": "unknown",
       "credits_per_seat": false,
@@ -72,5 +72,5 @@
     }
   ],
   "pricing_model": "per_seat",
-  "notes": "Prices are USD from the FAQ; the page says they are estimates that may exclude VAT/GST and promotions. Localized prices also shown: Core AUD A$154.99/month or A$1,499.88/year, CAD C$144.99/month or C$1,199.88/year, EUR €120.99/month or €1,088.88/year, GBP £94.99/month or £959.88/year. Advanced AUD A$189.99/month or A$2,159.88/year, CAD C$179.99/month or C$2,039.88/year, EUR €148.21/month or €1,693.88/year, GBP £130.00/month or £1,499.88/year. Advanced Plus pricing is customized and requires a demo request. Free trials for Core and Advanced are mentioned; the trial asks for a credit card. InMail limit of 50/month is a feature, not credits. Only one page view was provided."
+  "notes": "Prices are from the FAQ 'starts at' figures and are estimates that may exclude VAT/GST and promotions. Only USD recorded; the page also lists AUD, CAD, EUR and GBP prices for Core and Advanced, which were not recorded. Advanced Plus pricing is custom via a demo or sales quote. Only one page view was provided. Advanced allows up to five licenses online."
 }
