@@ -1,6 +1,6 @@
 {
   "transparency": "public",
-  "annual_discount_text": "Core: a 25% savings with annual billing; Advanced: a 6% savings with annual billing",
+  "annual_discount_text": "Core: a 25% savings with annual billing. Advanced: a 6% savings with annual billing.",
   "plans": [
     {
       "name": "Core",
@@ -10,7 +10,7 @@
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "license",
+          "unit": "per license",
           "kind": "current",
           "evidence": "US$119.99/month or US$1,079.88/year"
         },
@@ -19,13 +19,17 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "year",
-          "unit": "license",
+          "unit": "per license",
           "kind": "current",
           "evidence": "US$119.99/month or US$1,079.88/year"
         }
       ],
-      "seats_included": null,
-      "credits_included": null
+      "seats_included": 1,
+      "seats_evidence": "pricing per license starts at:",
+      "credits": null,
+      "credits_period": "unknown",
+      "credits_per_seat": false,
+      "credits_evidence": null
     },
     {
       "name": "Advanced",
@@ -35,7 +39,7 @@
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "license",
+          "unit": "per license",
           "kind": "current",
           "evidence": "US$159.99/month or US$1,799.88/year"
         },
@@ -44,21 +48,29 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "year",
-          "unit": "license",
+          "unit": "per license",
           "kind": "current",
           "evidence": "US$159.99/month or US$1,799.88/year"
         }
       ],
-      "seats_included": null,
-      "credits_included": null
+      "seats_included": 1,
+      "seats_evidence": "pricing per license starts at:",
+      "credits": null,
+      "credits_period": "unknown",
+      "credits_per_seat": false,
+      "credits_evidence": null
     },
     {
       "name": "Advanced Plus",
       "prices": [],
       "seats_included": null,
-      "credits_included": null
+      "seats_evidence": null,
+      "credits": null,
+      "credits_period": "unknown",
+      "credits_per_seat": false,
+      "credits_evidence": null
     }
   ],
   "pricing_model": "per_seat",
-  "notes": "Only one page view was provided (as it loads). Prices are per license and listed as starting prices; the page says they are estimates that may exclude VAT/GST and promotional discounts. USD prices recorded; the FAQ also lists AUD, CAD, EUR and GBP prices for Core and Advanced (not recorded): Core A$154.99/month or A$1,499.88/year, C$144.99/month or C$1,199.88/year, EUR 120.99/month or EUR 1,088.88/year, G£94.99/month or £959.88/year; Advanced A$189.99/month or A$2,159.88/year, C$179.99/month or C$2,039.88/year, EUR 148.21/month or EUR 1,693.88/year, £130.00/month or £1,499.88/year. Advanced Plus pricing is customized by team size, CRM integration and onboarding needs; request demo for a quote. Free trials are offered for Core and Advanced. Advanced allows up to five licenses online; more via admin. Team seat management and centralized billing is a feature of the team plans, but no seat count is stated."
+  "notes": "Prices are USD from the FAQ; the page says they are estimates that may exclude VAT/GST and promotions. Localized prices also shown: Core AUD A$154.99/month or A$1,499.88/year, CAD C$144.99/month or C$1,199.88/year, EUR €120.99/month or €1,088.88/year, GBP £94.99/month or £959.88/year. Advanced AUD A$189.99/month or A$2,159.88/year, CAD C$179.99/month or C$2,039.88/year, EUR €148.21/month or €1,693.88/year, GBP £130.00/month or £1,499.88/year. Advanced Plus pricing is customized and requires a demo request. Free trials for Core and Advanced are mentioned; the trial asks for a credit card. InMail limit of 50/month is a feature, not credits. Only one page view was provided."
 }

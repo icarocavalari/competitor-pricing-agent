@@ -7,7 +7,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 from pydantic import ValidationError
 
-from pricing_agent import COMPETITORS, Pricing, check, clean, extract
+from pricing_agent import COMPETITORS, Pricing, check, check_plan, clean, credits_per, credits_per_month, extract
 
 RUNS = 10
 
@@ -16,6 +16,7 @@ COST_PER_CALL = 0.002
 
 # The correct answers for the pages in tests/pages/ (saved Nov 21), checked by eye against those pages.
 # Each price is written as  plan | price currency per period | billing | kind | check result
+# Each plan's details as     plan | seats | credits per month, per seat or plan | check result
 EXPECTED = {
     "salesnav": {
         "transparency": "public",
@@ -26,6 +27,11 @@ EXPECTED = {
             "core | 1079.88 USD per year | annual billing | current | ok",
             "advanced | 159.99 USD per month | monthly billing | current | ok",
             "advanced | 1799.88 USD per year | annual billing | current | ok",
+        ],
+        "details": [
+            "advanced | seats 1 | no credits | ok",
+            "advanced plus | seats - | no credits | ok",
+            "core | seats 1 | no credits | ok",
         ],
     },
     "apollo": {
@@ -41,6 +47,12 @@ EXPECTED = {
             "organization | 119.00 USD | REVIEW",
             "organization | 149.00 USD | REVIEW",
         ],
+        "details": [
+            "basic | seats 1 | 2500 credits per month, per seat | ok",
+            "free | seats - | 75 credits per month, per seat | ok",
+            "organization | seats 1 | 6000 credits per month, per seat | ok",
+            "professional | seats 1 | 4000 credits per month, per seat | ok",
+        ],
     },
     "lusha": {
         "transparency": "public",
@@ -55,18 +67,30 @@ EXPECTED = {
             "premium | 299.95 USD per month | annual billing | current | ok",
             "premium | 399.90 USD per month | monthly billing | current | ok",
         ],
+        "details": [
+            "free | seats 1 | 40 credits per month, per plan | ok",
+            "premium | seats 5 | 3400 credits per month, per plan | ok",
+            "pro | seats 2 | 600 credits per month, per plan | ok",
+            "scale | seats - | no credits | ok",
+            "starter | seats 1 | 400 credits per month, per plan | ok",
+        ],
     },
     "zoominfo": {
         "transparency": "blocked",
         "pricing_model": "unknown",
         "plans": [],
         "prices": [],
+        "details": [],
     },
     "cognism": {
         "transparency": "contact_sales",
         "pricing_model": "seat_plus_credits",
         "plans": ["standard", "pro"],
         "prices": [],
+        "details": [
+            "pro | seats 5 | no credits | ok",
+            "standard | seats 5 | no credits | ok",
+        ],
     },
 }
 
@@ -75,10 +99,20 @@ EXPECTED = {
 def describe(pricing, page):
     plans = []
     prices = []
+    details = []
 
     for plan in pricing.plans:
         name = plan.name.lower().strip()
         plans.append(name)
+
+        seats = plan.seats_included
+        if seats is None:
+            seats = "-"
+        credits = "no credits"
+        if credits_per_month(plan) is not None:
+            credits = f"{credits_per_month(plan)} credits per month, per {credits_per(plan)}"
+        plan_status = check_plan(plan, page).split(",")[0]
+        details.append(f"{name} | seats {seats} | {credits} | {plan_status}")
 
         for price in plan.prices:
             result = check(price, page, plan)
@@ -98,6 +132,7 @@ def describe(pricing, page):
         "pricing_model": pricing.pricing_model,
         "plans": sorted(plans),
         "prices": sorted(prices),
+        "details": sorted(details),
     }
 
 
@@ -130,6 +165,14 @@ def differences(answer, expected):
     for price in answer["prices"]:
         if price not in expected["prices"]:
             problems.append(f"wrong price: {price}")
+
+    for detail in expected["details"]:
+        if detail not in answer["details"]:
+            problems.append(f"missing seats or credits: {detail}")
+
+    for detail in answer["details"]:
+        if detail not in expected["details"]:
+            problems.append(f"wrong seats or credits: {detail}")
 
     return problems
 

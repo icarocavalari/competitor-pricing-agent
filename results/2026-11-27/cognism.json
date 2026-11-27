@@ -5,16 +5,24 @@
     {
       "name": "Standard",
       "prices": [],
-      "seats_included": "5 seats",
-      "credits_included": "Each seat includes an allocation of credits (amount not stated)"
+      "seats_included": 5,
+      "seats_evidence": "5 seats included",
+      "credits": null,
+      "credits_period": "unknown",
+      "credits_per_seat": true,
+      "credits_evidence": null
     },
     {
       "name": "Pro",
       "prices": [],
-      "seats_included": "5 seats",
-      "credits_included": "Each seat includes an allocation of credits (amount not stated)"
+      "seats_included": 5,
+      "seats_evidence": "5 seats included",
+      "credits": null,
+      "credits_period": "unknown",
+      "credits_per_seat": true,
+      "credits_evidence": null
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Only one page view was provided (as it loads), with no prices shown. Standard and Pro show 'Talk to sales' / 'Talk to an expert' and the page says 'Get a personalised quote for your team'. CRM Enrichment is an add-on and standalone product, not a listed plan, and has no price in the text. The FAQ says pricing is tailored and no figures are given. No currency or annual discount is stated."
+  "notes": "Page text shows no plan prices. It says 'Speak to a Cognism expert to find the right setup and pricing' and 'Get a personalised quote', and the plan buttons say 'Talk to an expert'. CRM Enrichment is an add-on or standalone product, not a listed plan, and has no price. Credits: 'Each seat includes an allocation of credits' but no number is given. Only one view of the page was provided, with no monthly toggle view."
 }

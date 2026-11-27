@@ -1,0 +1,53 @@
+Round: seats_credits
+
+=== LinkedIn Sales Navigator ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Apollo.io ===
+Correct runs: 2 of 10
+Different answers: 5
+  3 runs, wrong
+    missing seats or credits: free | seats - | 75 credits per month, per seat | ok
+    wrong seats or credits: free | seats 1 | 75 credits per month, per seat | ok
+  2 runs, wrong
+    missing seats or credits: basic | seats 1 | 2500 credits per month, per seat | ok
+    missing seats or credits: free | seats - | 75 credits per month, per seat | ok
+    missing seats or credits: organization | seats 1 | 6000 credits per month, per seat | ok
+    missing seats or credits: professional | seats 1 | 4000 credits per month, per seat | ok
+    wrong seats or credits: basic | seats 1 | no credits | ok
+    wrong seats or credits: free | seats - | no credits | ok
+    wrong seats or credits: organization | seats 1 | no credits | ok
+    wrong seats or credits: professional | seats 1 | no credits | ok
+  2 runs, correct
+  2 runs, wrong
+    missing seats or credits: free | seats - | 75 credits per month, per seat | ok
+    wrong seats or credits: free | seats - | no credits | ok
+  1 runs, wrong
+    missing seats or credits: basic | seats 1 | 2500 credits per month, per seat | ok
+    missing seats or credits: free | seats - | 75 credits per month, per seat | ok
+    missing seats or credits: organization | seats 1 | 6000 credits per month, per seat | ok
+    missing seats or credits: professional | seats 1 | 4000 credits per month, per seat | ok
+    wrong seats or credits: basic | seats 1 | no credits | ok
+    wrong seats or credits: free | seats 1 | no credits | ok
+    wrong seats or credits: organization | seats 1 | no credits | ok
+    wrong seats or credits: professional | seats 1 | no credits | ok
+
+=== Lusha ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== ZoomInfo ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+=== Cognism ===
+Correct runs: 10 of 10
+Different answers: 1
+  10 runs, correct
+
+Total correct runs: 42 of 50
+Cost of new API calls: about US$0.0243

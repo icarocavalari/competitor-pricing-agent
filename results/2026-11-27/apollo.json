@@ -10,13 +10,17 @@
           "currency": "USD",
           "billing": "unknown",
           "period_shown": "unknown",
-          "unit": "per seat",
+          "unit": "free",
           "kind": "current",
           "evidence": "$0"
         }
       ],
       "seats_included": null,
-      "credits_included": "900 credits per seat per year, granted monthly"
+      "seats_evidence": null,
+      "credits": 900,
+      "credits_period": "year",
+      "credits_per_seat": true,
+      "credits_evidence": "900 credits per seat per year, granted monthly"
     },
     {
       "name": "Basic",
@@ -40,8 +44,12 @@
           "evidence": "$65 Per seat per month, billed monthly"
         }
       ],
-      "seats_included": null,
-      "credits_included": "30,000 credits per seat per year, granted upfront"
+      "seats_included": 1,
+      "seats_evidence": "Per seat per month, billed annually",
+      "credits": 30000,
+      "credits_period": "year",
+      "credits_per_seat": true,
+      "credits_evidence": "30,000 credits per seat per year, granted upfront"
     },
     {
       "name": "Professional",
@@ -65,16 +73,24 @@
           "evidence": "$99 Per seat per month, billed monthly"
         }
       ],
-      "seats_included": null,
-      "credits_included": "48,000 credits per seat per year, granted upfront"
+      "seats_included": 1,
+      "seats_evidence": "Per seat per month, billed annually",
+      "credits": 48000,
+      "credits_period": "year",
+      "credits_per_seat": true,
+      "credits_evidence": "48,000 credits per seat per year, granted upfront"
     },
     {
       "name": "Organization",
       "prices": [],
-      "seats_included": null,
-      "credits_included": "Custom credits per seat per year, granted upfront"
+      "seats_included": 1,
+      "seats_evidence": "per seat per year, granted upfront",
+      "credits": null,
+      "credits_period": "year",
+      "credits_per_seat": true,
+      "credits_evidence": "Custom credits per seat per year, granted upfront"
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Prices shown in $ only, recorded as USD. Free plan shows $0 in both views; the annual view says 900 credits per seat per year granted monthly, the monthly view says 75 credits per seat per month granted upfront, and billing for Free is not stated. Basic and Professional monthly-view credits are 2,500 per seat per month (Basic) and 4,000 per seat per month (Professional). Organization is Custom Pricing, Talk to Sales, billed annually only in the annual view and Annual Only in the monthly view. Add-ons (not plans): Inbound Essentials $119 and Max $639 per team per month billed annually, $149 and $799 billed monthly; Advanced Dialer $119 annual and $149 monthly per team per month. Professional offers a 14-day trial. FAQ says the trial includes 75 credits and mentions a free Starter plan that is not listed as a pricing section. Prices exclude taxes. Seat counts are not stated."
+  "notes": "Organization plan has Custom Pricing with Talk to Sales. Credits for Free and Basic/Professional in view 2 show per seat per month (75, 2,500, 4,000), not a conflict; first view recorded. Free plan has no billing cycle shown. Add-ons not listed as plans: Inbound (Essentials $119, Max $639 per team per month billed annually; $149 and $799 billed monthly) and Advanced Dialer ($119 annual; $149 monthly). Trial: 14-day trial on Professional, 75 credits trial. Prices shown with $ symbol only, recorded as USD."
 }

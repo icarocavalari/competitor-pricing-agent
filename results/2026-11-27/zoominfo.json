@@ -1,7 +1,7 @@
 {
-  "transparency": "blocked",
+  "transparency": "no_prices_in_text",
   "annual_discount_text": null,
   "plans": [],
   "pricing_model": "unknown",
-  "notes": "Page text is a Cloudflare security verification page, not the pricing page. No plans or prices could be extracted. Only one view was provided."
+  "notes": "No page text was included after the VIEW 1 label, so no plans or prices could be extracted. Transparency is not verified; resubmit the page text for ZoomInfo."
 }

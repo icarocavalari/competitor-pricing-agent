@@ -3,8 +3,9 @@ import sqlite3
 # Every run goes into one table in this file, with the date of the run as a column
 DATABASE = "results/prices.db"
 
-COLUMNS = ["competitor", "transparency", "pricing_model", "plan", "seats", "credits",
-           "amount", "currency", "period_shown", "billing", "kind", "per_month", "check"]
+# The columns of the Excel file and of the database table, in this order
+COLUMNS = ["competitor", "transparency", "pricing_model", "plan", "seats_included", "credits_per_month",
+           "credits_per", "amount", "currency", "period_shown", "billing", "kind", "per_month", "check", "note"]
 
 
 def connect():
@@ -17,15 +18,17 @@ def connect():
             transparency TEXT,
             pricing_model TEXT,
             plan TEXT,
-            seats TEXT,
-            credits TEXT,
+            seats_included INTEGER,
+            credits_per_month INTEGER,
+            credits_per TEXT,
             amount REAL,
             currency TEXT,
             period_shown TEXT,
             billing TEXT,
             kind TEXT,
             per_month REAL,
-            "check" TEXT
+            "check" TEXT,
+            note TEXT
         )
     """)
     return connection
@@ -34,19 +37,20 @@ def connect():
 def save_run(run_date, rows):
     connection = connect()
 
-    # If a competitor was already saved on this date (running the script twice), its old rows are replaced
+    # If a competitor was already saved on this date (the script ran twice), its old rows are replaced
     competitors = set()
     for row in rows:
         competitors.add(row["competitor"])
     for competitor in competitors:
         connection.execute("DELETE FROM prices WHERE run_date = ? AND competitor = ?", (run_date, competitor))
 
+    # One ? for run_date and one for each column
+    placeholders = ", ".join(["?"] * (len(COLUMNS) + 1))
     for row in rows:
         values = [run_date]
         for column in COLUMNS:
-            values.append(row.get(column))  # None (an empty value) when the row has nothing for that column
-        # One ? for run_date and one for each of the 13 columns
-        connection.execute("INSERT INTO prices VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", values)
+            values.append(row.get(column))  # None (empty) when the row has nothing for that column
+        connection.execute(f"INSERT INTO prices VALUES ({placeholders})", values)
 
     connection.commit()
     connection.close()
@@ -59,68 +63,121 @@ def previous_run_date(run_date):
     return result[0]  # None when there's no earlier run
 
 
-def price_lines(run_date):
-    # Each price becomes one line with competitor, plan, billing and monthly price.
-    # The seats and credits texts aren't compared, because the AI words them differently on every run.
+def load_run(run_date):
     connection = connect()
-    lines = connection.execute(
-        "SELECT competitor, plan, billing, per_month FROM prices WHERE run_date = ?", (run_date,)
-    ).fetchall()
+    connection.row_factory = sqlite3.Row  # each row can be read by column name, like a dict
+    rows = []
+    for row in connection.execute("SELECT * FROM prices WHERE run_date = ?", (run_date,)):
+        rows.append(dict(row))
     connection.close()
-    return set(lines)
+    return rows
 
 
-def same_plan(line_a, line_b):
-    # Same competitor, plan and billing. Only the price can be different.
-    return line_a[0] == line_b[0] and line_a[1] == line_b[1] and line_a[2] == line_b[2]
+def rows_of(rows, competitor):
+    selected = []
+    for row in rows:
+        if row["competitor"] == competitor:
+            selected.append(row)
+    return selected
 
 
-def count_same_plan(lines, line):
-    count = 0
-    for other in lines:
-        if same_plan(other, line):
-            count += 1
-    return count
+# Only plans and numbers are compared, never texts, because the AI words texts differently on every run
+
+def prices_by_plan(rows):
+    # (competitor, plan, billing) -> the monthly prices. A plan without a price has [None].
+    prices = {}
+    for row in rows:
+        key = (row["competitor"], row.get("plan"), row.get("billing"))
+        if key not in prices:
+            prices[key] = []
+        prices[key].append(row.get("per_month"))
+    return prices
 
 
-def find_changes(old_date, new_date):
-    old_lines = price_lines(old_date)
-    new_lines = price_lines(new_date)
+def details_by_plan(rows):
+    # (competitor, plan) -> (seats included, credits per month, credits per seat or per plan)
+    details = {}
+    for row in rows:
+        key = (row["competitor"], row.get("plan"))
+        details[key] = (row.get("seats_included"), row.get("credits_per_month"), row.get("credits_per"))
+    return details
 
-    # A line only in the old run was removed, and a line only in the new run was added
-    removed = sorted(old_lines - new_lines, key=str)
-    added = sorted(new_lines - old_lines, key=str)
 
-    # Each change is (change, competitor, plan, billing, price before, price after)
+def has_numbers(details):
+    for seats, credits, per in details.values():
+        if seats is not None or credits is not None:
+            return True
+    return False
+
+
+def show_price(price):
+    if price is None:
+        return "no price"
+    return f"{price:.2f}"
+
+
+def show_seats(seats):
+    if seats is None:
+        return "not stated"
+    return str(seats)
+
+
+def show_credits(credits, per):
+    if credits is None:
+        return "no number"
+    return f"{credits} per month, per {per}"
+
+
+def find_changes(old_rows, new_rows):
+    # Each change is (change, competitor, plan, billing, before, after)
     changes = []
 
-    # When a plan has exactly one removed price and one added price, the price changed, so it becomes one line.
-    # If there are more (like Apollo showing two prices for one plan), it's not clear which became which,
-    # so they stay as separate removed and added lines.
-    paired_old = []
-    paired_new = []
-    for old_line in removed:
-        if count_same_plan(removed, old_line) == 1 and count_same_plan(added, old_line) == 1:
-            for new_line in added:
-                if same_plan(new_line, old_line):
-                    changes.append(("changed", old_line[0], old_line[1], old_line[2], old_line[3], new_line[3]))
-                    paired_old.append(old_line)
-                    paired_new.append(new_line)
+    # 1. Prices
+    old_prices = prices_by_plan(old_rows)
+    new_prices = prices_by_plan(new_rows)
+    for key in sorted(set(old_prices) | set(new_prices), key=str):
+        competitor, plan, billing = key
+        before = old_prices.get(key, [])
+        after = new_prices.get(key, [])
 
-    for line in removed:
-        if line not in paired_old:
-            changes.append(("removed", line[0], line[1], line[2], line[3], None))
-    for line in added:
-        if line not in paired_new:
-            changes.append(("added", line[0], line[1], line[2], None, line[3]))
+        removed = []
+        for price in before:
+            if price not in after:
+                removed.append(price)
+        added = []
+        for price in after:
+            if price not in before:
+                added.append(price)
+
+        # One price out and one in for the same plan and billing is a new price.
+        # With more (like Apollo once showing two prices for one plan), it's not clear which became which.
+        if len(removed) == 1 and len(added) == 1:
+            changes.append(("price changed", competitor, plan, billing, show_price(removed[0]), show_price(added[0])))
+        else:
+            for price in removed:
+                changes.append(("removed", competitor, plan, billing, show_price(price), "-"))
+            for price in added:
+                changes.append(("added", competitor, plan, billing, "-", show_price(price)))
+
+    # 2. Seats and credits, for plans in both runs.
+    # Runs saved before seats and credits were numbers have none, so there's nothing to compare yet.
+    old_details = details_by_plan(old_rows)
+    new_details = details_by_plan(new_rows)
+    if has_numbers(old_details):
+        for key in sorted(new_details, key=str):
+            if key not in old_details:
+                continue
+            competitor, plan = key
+            old_seats, old_credits, old_per = old_details[key]
+            new_seats, new_credits, new_per = new_details[key]
+
+            if old_seats != new_seats:
+                changes.append(("seats changed", competitor, plan, None, show_seats(old_seats), show_seats(new_seats)))
+            if old_credits != new_credits or old_per != new_per:
+                changes.append(("credits changed", competitor, plan, None,
+                                show_credits(old_credits, old_per), show_credits(new_credits, new_per)))
 
     return changes
-
-
-def show_price(value):
-    if value is None:
-        return "no price"
-    return f"{value:.2f}"
 
 
 def print_changes(old_date, changes):
@@ -131,19 +188,10 @@ def print_changes(old_date, changes):
     print(f"Changes since {old_date} (prices per month):")
     for change in changes:
         kind, competitor, plan, billing, before, after = change
-        if plan is None:
-            plan = "-"
-        if billing is None:
-            billing = "-"
-        if kind == "changed":
-            print(f"  changed: {competitor}, {plan}, {billing}, {show_price(before)} -> {show_price(after)}")
-        elif kind == "removed":
-            if before is None:
-                print(f"  removed: {competitor}, {plan}, {billing}, had no price")
-            else:
-                print(f"  removed: {competitor}, {plan}, {billing}, was {show_price(before)}")
-        else:
-            print(f"  added: {competitor}, {plan}, {billing}, {show_price(after)}")
+        where = f"{competitor}, {plan}"
+        if billing is not None:
+            where += f", {billing}"
+        print(f"  {kind}: {where}, {before} -> {after}")
 
 
 def add_changes_sheet(workbook, old_date, changes):
@@ -155,11 +203,5 @@ def add_changes_sheet(workbook, old_date, changes):
         sheet.append([f"no changes since {old_date}"])
     else:
         for change in changes:
-            kind, competitor, plan, billing, before, after = change
-            # An empty price on a plan that exists means the plan has no price (like "custom pricing")
-            if kind != "added" and before is None:
-                before = "no price"
-            if kind != "removed" and after is None:
-                after = "no price"
-            sheet.append([kind, competitor, plan, billing, before, after])
+            sheet.append(list(change))
     return sheet

@@ -23,7 +23,16 @@ Plans
 - Plans only mentioned in the FAQ or other text are not plans. Neither are add-ons or separate products. Mention them in notes.
 - This is only about which plans to list. Prices for a listed plan can come from anywhere on the page, including the FAQ.
 - A price belongs to a plan only if it appears after that plan's name and before the next plan's name.
-- seats_included, credits_included: copy what the page says (e.g. "5 seats", "4,800 credits per year"), or null.
+
+Seats and credits
+- seats_included: how many seats one price pays for. If the page says the price is per seat, user or license, it's 1. If the page says seats are included ("1 seat included", "2 free seats"), use that number. A minimum ("min 3 seats") is not seats included. For a free plan, it's null unless the page states a number of seats. Otherwise null.
+- seats_evidence: the exact page text that shows the seats (e.g. "Per seat per month", "pricing per license", "2 free seats"), or null.
+- credits: the number of credits included, only for what the page calls credits. null if the page gives no number (e.g. "Custom credits").
+- credits_period: month or year, as shown next to the number, or unknown.
+- If the two views show the credits per year and per month (e.g. 30,000 per year and 2,500 per month), that is not a conflict. Record the one from the first view.
+- credits_per_seat: true only if the page says the credits are per seat.
+- credits_evidence: the exact page text with the number, the period and, if shown, "per seat" (e.g. "30,000 credits per seat per year"), or null.
+- Evidence is under 100 characters. Never write evidence that isn't in the page text.
 
 Prices
 - Record each price exactly as shown. Never calculate, convert or round. A yearly total stays a yearly total, with period_shown "year".

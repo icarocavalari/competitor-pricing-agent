@@ -3,7 +3,7 @@ import os
 
 from openpyxl import load_workbook
 
-from history import find_changes, print_changes, save_run
+from history import find_changes, load_run, print_changes, save_run
 
 # Run once. Loads every past run (results/<date>/prices.xlsx) into the database,
 # then shows what changed between each run and the one before it.
@@ -26,5 +26,5 @@ for path in sorted(glob.glob("results/*/prices.xlsx")):
 
 for i in range(1, len(run_dates)):
     print(f"\n--- {run_dates[i]} ---")
-    changes = find_changes(run_dates[i - 1], run_dates[i])
+    changes = find_changes(load_run(run_dates[i - 1]), load_run(run_dates[i]))
     print_changes(run_dates[i - 1], changes)
