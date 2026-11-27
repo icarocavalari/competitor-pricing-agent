@@ -1,61 +1,41 @@
 # Competitor Pricing Agent
 
-Reads the public pricing pages of LinkedIn Sales Navigator and four competitors (Apollo.io, Lusha, ZoomInfo and Cognism) and turns each one into the same structured format, with plans, prices, billing, seats and credits.
+Lê as páginas de preços do LinkedIn Sales Navigator e de quatro concorrentes (Apollo.io, Lusha, ZoomInfo e Cognism) e transforma tudo em uma tabela de planos, preços, licenças e créditos. Cada preço é conferido na página, e o que não estiver claro vai para uma pessoa, em vez de ser adivinhado.
 
-Every price is checked against the page before it's trusted. When something doesn't add up, the price is flagged for a person to review instead of being guessed.
+## Como funciona
 
-## How it works
+1. Um navegador Chrome abre cada página de preços e lê o texto.
+2. O Claude (Haiku 5.5) extrai os preços e copia o trecho de onde saiu cada um como evidência.
+3. O Python confere cada preço na página e marca como ok, REVIEW (uma pessoa deve olhar) ou FAIL (não confiar).
+4. Os resultados são salvos por data em `results/`, incluindo uma tabela de Excel (`prices.xlsx`).
 
-1. A real Chrome browser opens each pricing page and reads all of its text, including collapsed FAQ answers. If the page has a monthly toggle, it clicks it and reads the page again.
-2. Claude (Haiku 5.5) extracts the pricing into a fixed format. It only uses the page text, copies the exact text behind each price as evidence, and never guesses.
-3. Python checks every price. The evidence has to be on the page, and the price has to be in the evidence. Two prices that contradict each other for the same plan are flagged.
-4. Each price ends up as ok, REVIEW (a person should look at it) or FAIL (don't trust it).
-5. Results are saved by date in `results/`, as one JSON file per competitor and one Excel table with every price (`prices.xlsx`), ready for analysis.
+## Resultados
 
-Pages that hide their prices are a finding too. The tool records whether prices are public, behind "talk to sales", behind a form, or blocked by a security check.
+- **Precisão.** Em cópias salvas das páginas, as execuções corretas foram de 31 de 50 para 49 de 50, principalmente deixando as regras mais claras. Com as regras finais, 99 de 100 execuções estavam corretas, e nenhum preço errado passou como ok. Detalhes em `tests/`.
+- **Última execução (26/11/2026).** Os 16 preços publicados passaram. O ZoomInfo foi para REVIEW porque a página bloqueia navegadores automatizados.
+- **Histórico.** Entre 22/11 e 26/11, o Apollo tirou o preço do seu plano mais alto, o Organization (antes US$ 119 e US$ 149, agora preço sob consulta).
+- **Custo.** Cerca de US$ 0,01 por execução.
 
-## First analysis
+## O que a ferramenta mostrou
 
-`results/2026-11-22/pricing_analysis.xlsx` turns one day of results into an overview, a summary by competitor and a comparison of annual and monthly prices. It was built from the tool's output, separately from the tool for now. Some of what it shows.
+- O Sales Navigator é o único cobrado só por licença. Os outros combinam licenças com créditos.
+- Ele é a opção premium no plano de entrada, US$ 89,99 por mês no plano anual, contra US$ 49 do Apollo Basic e US$ 37,45 do Lusha Starter.
+- Só 3 de 5 publicam seus preços.
 
-- Only 3 of 5 competitors publish their prices.
-- Sales Navigator is the only one priced purely per seat. The others combine seats with credits.
-- Sales Navigator is the premium option at entry level, $89.99 per month billed annually vs $49 for Apollo Basic and $37.45 for Lusha Starter.
-- Annual discounts cluster around 25%, except Sales Navigator Advanced (about 6%) and Apollo Professional (about 20%, while its page says "Save 24%").
+## Limitações
 
-It compares list prices only. Plans differ in features, seats and credits.
+- Compara só preços de tabela, e os planos são diferentes em recursos, licenças e créditos.
+- Lê os preços apenas em dólar.
 
-## Measuring consistency
+## Próximos passos
 
-An AI can give different answers to the same page. To measure that, `consistency_test.py` runs the extraction 10 times per competitor on the same frozen copy of each page and compares every run with the correct answers.
+- Rodar todas as manhãs com o n8n e mandar qualquer mudança para uma pessoa.
+- Quando um resultado mudar, rodar mais duas vezes e ficar com a maioria, para evitar alertas falsos.
+- Comparar o custo do mesmo trabalho, como contatar 100 pessoas por mês, e não só os preços de entrada.
 
-| Round | What changed | Correct runs |
-|---|---|---|
-| baseline | First version | 31 of 50 |
-| clear_rules | Clearer rules for currencies and for what counts as a plan | 43 of 50 |
-| clear_model | Clearer pricing model rule, picked only after the plans are written out | 47 of 50 |
-| review_check | Python check for contradicting prices, prices allowed from the FAQ | 49 of 50 |
+## Como rodar
 
-Most of the variation came from vague instructions, not randomness. When a rule left room for interpretation, the AI decided differently from run to run. The summary of each round is in `tests/`.
-
-## Known limitations
-
-- ZoomInfo blocks automated browsers with a security check, so the tool reports it as blocked. Checked by hand, its page asks for a business email before showing prices.
-- Prices are read in US dollars from Brazil. Other countries may need a connection from that country, since many sites pick the currency by location.
-
-## Cost
-
-A full run over the five competitors costs about US$0.01. A test round of 50 runs costs about US$0.10.
-
-## Next steps
-
-- Run it every morning and compare with the previous day. Any difference goes to a person, since it's either a real price change or a page the tool no longer reads correctly.
-- When a result differs, run it twice more and keep the majority, so a rare AI mistake doesn't trigger a false alert.
-- Build the analysis workbook automatically from each run, with an AI step that writes the findings and Python checking every number it cites.
-
-## Running it
-
-Needs Python 3.9+, Google Chrome and an Anthropic API key in a `.env` file as `ANTHROPIC_API_KEY`.
+Precisa de Python 3.9+, Google Chrome e uma chave da API da Anthropic no `.env`, como `ANTHROPIC_API_KEY`.
 
 ```
 python -m venv .venv
@@ -63,5 +43,3 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python pricing_agent.py
 ```
-
-To run a single competitor, pass its name, for example `python pricing_agent.py apollo`.
