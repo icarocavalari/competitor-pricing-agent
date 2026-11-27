@@ -10,9 +10,9 @@
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$0 USD / month"
+          "evidence": "$ 0 USD / month"
         }
       ],
       "seats_included": "1 seat included",
@@ -26,18 +26,18 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$37.45 USD / month"
+          "evidence": "$ 37 .45 USD / month"
         },
         {
           "amount": 49.9,
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$49.90 USD / month"
+          "evidence": "$ 49 .90 USD / month"
         }
       ],
       "seats_included": "1 seat included",
@@ -51,18 +51,18 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$52.45 USD / month"
+          "evidence": "$ 52 .45 USD / month"
         },
         {
           "amount": 69.9,
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$69.90 USD / month"
+          "evidence": "$ 69 .90 USD / month"
         }
       ],
       "seats_included": "2 free seats",
@@ -76,18 +76,18 @@
           "currency": "USD",
           "billing": "annual",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$299.95 USD / month"
+          "evidence": "$ 299 .95 USD / month"
         },
         {
           "amount": 399.9,
           "currency": "USD",
           "billing": "monthly",
           "period_shown": "month",
-          "unit": "per month",
+          "unit": "account",
           "kind": "current",
-          "evidence": "$399.90 USD / month"
+          "evidence": "$ 399 .90 USD / month"
         }
       ],
       "seats_included": "5 free seats",
@@ -101,5 +101,5 @@
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Two views: yearly view (Pay yearly) and monthly view (Pay monthly). Monthly view shows different credit amounts: Starter 400, Pro 600, Premium 3,400 credits per month; Free 40 per month. Scale has no price and is sales-led (Get a demo, Talk to sales). Free plan needs no credit card. Prices shown in USD only. Pro and Premium seat lines say seats included with 2 and 5 free seats listed in features. Credits: 1 per verified email, 5 per phone number. Priority support and dedicated success team are conditional on minimum spend. No add-ons listed with prices."
+  "notes": "Two views: the first shows yearly billing (Pay yearly, 25% off) and the second shows monthly billing; each price is recorded under its own billing cycle. Monthly-view credits: Starter 400 per month, Pro 600 per month, Premium 3,400 per month; monthly credits roll over up to 2x. Pro and Premium seat counts: the seat number is missing next to 'seats included', so the free seats from the feature lists are used. Scale has no price and directs to sales (Get a demo; talk to sales reps). Prices are in USD only. Add-ons and separate products are not listed as plans. Lowest monthly prices for Pro and Premium are not explicitly shown as current beyond the stated billing cycles. Free plan has up to 40 credits per month, 1 seat, no credit card required."
 }

@@ -11,6 +11,8 @@ from openpyxl.styles import Font, PatternFill
 from playwright.sync_api import sync_playwright
 from pydantic import BaseModel, ValidationError
 
+from history import COLUMNS, add_changes_sheet, find_changes, previous_run_date, print_changes, save_run
+
 MODEL = "claude-haiku-5-5"
 
 COMPETITORS = {
@@ -201,7 +203,7 @@ def format_sheet(sheet):
 
     # 4. Show prices with two decimals (49.00 instead of 49)
     for cell in sheet[1]:
-        if cell.value in ("amount", "per_month"):
+        if cell.value in ("amount", "per_month", "before", "after"):
             for price_cell in sheet[cell.column_letter][1:]:
                 price_cell.number_format = "0.00"
 
@@ -331,18 +333,31 @@ def main():
 
     # 5. Save every price as one table in an Excel file. Numbers stay real numbers, ready for formulas,
     # and it opens correctly in any Excel language (a CSV breaks in Excel set to Portuguese).
-    columns = ["competitor", "transparency", "pricing_model", "plan", "seats", "credits",
-               "amount", "currency", "period_shown", "billing", "kind", "per_month", "check"]
     workbook = Workbook()
     sheet = workbook.active
     sheet.title = "prices"
-    sheet.append(columns)
+    sheet.append(COLUMNS)
     for row in rows:
         values = []
-        for column in columns:
+        for column in COLUMNS:
             values.append(row.get(column))  # an empty cell when the row has no value for that column
         sheet.append(values)
     format_sheet(sheet)
+
+    # 6. Add this run to the database, compare it with the previous run, and list what changed in a second sheet
+    today = str(date.today())
+    save_run(today, rows)
+    previous = previous_run_date(today)
+    changes = []
+    print()
+    if previous is None:
+        print("No previous run to compare with")
+    else:
+        changes = find_changes(previous, today)
+        print_changes(previous, changes)
+    changes_sheet = add_changes_sheet(workbook, previous, changes)
+    format_sheet(changes_sheet)
+
     workbook.save(f"{results_folder}/prices.xlsx")
 
     print(f"\nTotal cost: about US${total_cost:.4f}")

@@ -10,13 +10,13 @@
           "currency": "USD",
           "billing": "unknown",
           "period_shown": "unknown",
-          "unit": "free",
+          "unit": "per seat",
           "kind": "current",
           "evidence": "$0"
         }
       ],
-      "seats_included": "per seat",
-      "credits_included": "900 credits per seat per year, granted monthly (annual view); 75 credits per seat per month, granted upfront (monthly view)"
+      "seats_included": null,
+      "credits_included": "900 credits per seat per year, granted monthly"
     },
     {
       "name": "Basic",
@@ -41,7 +41,7 @@
         }
       ],
       "seats_included": null,
-      "credits_included": "30,000 credits per seat per year, granted upfront (annual); 2,500 credits per seat per month, granted upfront (monthly)"
+      "credits_included": "30,000 credits per seat per year, granted upfront"
     },
     {
       "name": "Professional",
@@ -66,15 +66,15 @@
         }
       ],
       "seats_included": null,
-      "credits_included": "48,000 credits per seat per year, granted upfront (annual); 4,000 credits per seat per month, granted upfront (monthly)"
+      "credits_included": "48,000 credits per seat per year, granted upfront"
     },
     {
       "name": "Organization",
       "prices": [],
       "seats_included": null,
-      "credits_included": "Custom credits per seat, granted upfront"
+      "credits_included": "Custom credits per seat per year, granted upfront"
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Prices are in USD shown with the dollar symbol. Monthly view prices differ from annual view prices. Free plan credit amount differs between the two views (900 per year vs 75 per month), and the FAQ says free trial includes 75 credits. Organization plan is Custom Pricing, talk to sales, and is annual only in the monthly view. Add-ons, not listed as plans: Inbound Essentials 119 USD per team per month billed annually (149 billed monthly), Inbound Max 639 (799 monthly), Advanced Dialer 119 (149 monthly). Professional has a 14-day trial. FAQ mentions a free Starter plan not shown in the plan sections. Credits are pooled across the team and are shown per seat. Prices exclude taxes."
+  "notes": "Prices shown in $ only, recorded as USD. Free plan shows $0 in both views; the annual view says 900 credits per seat per year granted monthly, the monthly view says 75 credits per seat per month granted upfront, and billing for Free is not stated. Basic and Professional monthly-view credits are 2,500 per seat per month (Basic) and 4,000 per seat per month (Professional). Organization is Custom Pricing, Talk to Sales, billed annually only in the annual view and Annual Only in the monthly view. Add-ons (not plans): Inbound Essentials $119 and Max $639 per team per month billed annually, $149 and $799 billed monthly; Advanced Dialer $119 annual and $149 monthly per team per month. Professional offers a 14-day trial. FAQ says the trial includes 75 credits and mentions a free Starter plan that is not listed as a pricing section. Prices exclude taxes. Seat counts are not stated."
 }

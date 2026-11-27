@@ -5,16 +5,16 @@
     {
       "name": "Standard",
       "prices": [],
-      "seats_included": "5 seats included",
-      "credits_included": "Each seat includes an allocation of credits"
+      "seats_included": "5 seats",
+      "credits_included": "Each seat includes an allocation of credits (amount not stated)"
     },
     {
       "name": "Pro",
       "prices": [],
-      "seats_included": "5 seats included",
-      "credits_included": "Each seat includes an allocation of credits"
+      "seats_included": "5 seats",
+      "credits_included": "Each seat includes an allocation of credits (amount not stated)"
     }
   ],
   "pricing_model": "seat_plus_credits",
-  "notes": "Only one view of the page was provided and it shows no plan prices. Standard and Pro show Talk to sales / Talk to an expert, and the page says Get a personalised quote. CRM Enrichment is an add-on or standalone product, not listed as a plan. The FAQ says pricing is tailored and not published. No currency is shown."
+  "notes": "Only one page view was provided (as it loads), with no prices shown. Standard and Pro show 'Talk to sales' / 'Talk to an expert' and the page says 'Get a personalised quote for your team'. CRM Enrichment is an add-on and standalone product, not a listed plan, and has no price in the text. The FAQ says pricing is tailored and no figures are given. No currency or annual discount is stated."
 }
