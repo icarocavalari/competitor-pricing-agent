@@ -7,6 +7,7 @@ from typing import Literal, Optional
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from openpyxl import Workbook
+from openpyxl.styles import Font, PatternFill
 from playwright.sync_api import sync_playwright
 from pydantic import BaseModel, ValidationError
 
@@ -181,6 +182,41 @@ def per_month(price):
     return None
 
 
+def format_sheet(sheet):
+    # 1. Header row: bold white text on a blue background
+    for cell in sheet[1]:
+        cell.font = Font(bold=True, color="FFFFFF")
+        cell.fill = PatternFill(fill_type="solid", start_color="2F5DA8")
+
+    # 2. Keep the header visible while scrolling
+    sheet.freeze_panes = "A2"
+
+    # 3. Make each column as wide as its longest value (plus some space for the bold header), up to 40 characters
+    for column in sheet.columns:
+        longest = 0
+        for cell in column:
+            if cell.value is not None:
+                longest = max(longest, len(str(cell.value)))
+        sheet.column_dimensions[column[0].column_letter].width = min(longest + 4, 40)
+
+    # 4. Show prices with two decimals (49.00 instead of 49)
+    for cell in sheet[1]:
+        if cell.value in ("amount", "per_month"):
+            for price_cell in sheet[cell.column_letter][1:]:
+                price_cell.number_format = "0.00"
+
+    # 5. Color the check column, so anything a person has to look at stands out
+    for cell in sheet[1]:
+        if cell.value == "check":
+            for check_cell in sheet[cell.column_letter][1:]:
+                if check_cell.value == "ok":
+                    check_cell.font = Font(color="1E7B34")
+                elif check_cell.value == "REVIEW":
+                    check_cell.font = Font(bold=True, color="B45F06")
+                elif check_cell.value == "FAIL":
+                    check_cell.font = Font(bold=True, color="C00000")
+
+
 def main():
     if len(sys.argv) > 1:
         keys = sys.argv[1:]
@@ -306,6 +342,7 @@ def main():
         for column in columns:
             values.append(row.get(column))  # an empty cell when the row has no value for that column
         sheet.append(values)
+    format_sheet(sheet)
     workbook.save(f"{results_folder}/prices.xlsx")
 
     print(f"\nTotal cost: about US${total_cost:.4f}")
