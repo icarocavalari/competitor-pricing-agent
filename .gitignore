@@ -228,3 +228,9 @@ debug/
 # Frozen copies of competitor pages used by consistency_test.py (other companies content, kept local)
 tests/pages/
 tests/*/*.json
+
+# The presentation, downloaded to add paragraph breaks to the speaker notes (kept out of GitHub)
+*.pptx
+
+# Hidden files macOS creates in every folder
+.DS_Store
